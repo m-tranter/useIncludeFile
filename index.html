@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://www.cheshireeast.gov.uk/siteelements/css/bs5/100-bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://www.cheshireeast.gov.uk/siteelements/css/bs5/400-cec-styles.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700"
+      rel="stylesheet"
+    />
+    <title>Test page</title>
+  </head>
+  <body>
+    <div style="background: teal">
+      <p class="my-0 text-center text-white">Top</p>
+    </div>
+    <div id="include" class="container"></div>
+    <div style="background: teal">
+      <p class="my-0 text-center text-white">Bottom</p>
+    </div>
+    <script src="https://www.cheshireeast.gov.uk/SiteElements/js/bs5/bootstrap.bundle.min.js"></script>
+    <script>
+      const inc = document.getElementById('include');
+      const xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+          inc.innerHTML = this.responseText;
+        } 
+      };
+      xhttp.open('GET', 'inc.html', true);
+      xhttp.send();
+    </script>
+  </body>
+</html>
